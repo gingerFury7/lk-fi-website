@@ -3,6 +3,117 @@ import  React, { Fragment } from "react";
 export const SecondHome = () => {
     return(
         <Fragment>
+
+<div class="overlay"></div>
+    <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+
+    <div class="preloader">
+        <div class='loader'></div>
+    </div>
+
+    <header class="header-section-2">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo">
+                    <a href="index.html"><img src="./images/logo/logo.png" alt="logo"/></a>
+                </div>
+                <div class="follow-area">
+                    <h6 class="title">Follow Me</h6>
+                    <ul class="social-icons justify-content-start choto">
+                        <li>
+                            <a href="#0"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                            <a href="#0" class="active"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#0"><i class="fab fa-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-right d-none d-lg-block">
+                    <a href="#0" class="custom-button choto">Follow Me</a>
+                </div>
+                <div class="ellipsis-bar ml-auto d-lg-none">
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+                <div class="header-bar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <div class="header-bottom-wrapper">
+                    <ul class="menu">
+                        <li>
+                            <a href="#0">Home</a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="/">Home 1</a>
+                                </li>
+                                <li>
+                                    <a href="/home">Home 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#0">Blog</a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="/blog/">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="/blog?single">Blog Single</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/award">awards</a>
+                        </li>
+                        <li>
+                            <a href="/contact">contact</a>
+                        </li>
+                        <li>
+                            <a href="#0" class="custom-button choto py-0 d-lg-none">Follow Me</a>
+                        </li>
+                    </ul>
+                    <form class="header-search-form d-none d-lg-flex">
+                        <input type="text" placeholder="Search Keyword"/>
+                        <button type="submit">
+                            <i class="flaticon-search-interface-symbol"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="header-troops">
+            <div class="close-btn">
+                <i class="fas fa-times"></i>
+            </div>
+            <h6 class="title">Follow Me</h6>
+            <ul class="social-icons justify-content-start choto">
+                <li>
+                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li>
+                    <a href="#0" class="active"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="#0"><i class="fab fa-instagram"></i></a>
+                </li>
+            </ul>
+            <form class="header-search-form">
+                <input type="text" placeholder="Search Keyword"/>
+                <button type="submit">
+                    <i class="flaticon-search-interface-symbol"></i>
+                </button>
+            </form>
+        </div>
+    </header>
+
                 <div class="overlay"></div>
                 <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
 
