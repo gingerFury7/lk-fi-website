@@ -1187,6 +1187,9 @@ pre code {
     flex: 0 0 83.333333%;
     max-width: 83.333333%;
   }
+  .col-lg-10{
+    color: #fff;
+  }
   .col-lg-11 {
     -ms-flex: 0 0 91.666667%;
     flex: 0 0 91.666667%;
@@ -4442,7 +4445,7 @@ input[type="submit"].btn-block {
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   list-style: none;
-  background-color: #e9ecef;
+  
   border-radius: 0.25rem;
 }
 .breadcrumb-item + .breadcrumb-item {

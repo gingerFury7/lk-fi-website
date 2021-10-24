@@ -1,122 +1,13 @@
 import React, { Fragment } from "react";
+import { SiteFooter } from "./components/footer";
+import { SiteHeader } from "./components/header";
+import Test_Comen from "./components/testComm/coments";
 
 export const blog_single = () =>{
     return(
         <Fragment>
             
-    <div class="overlay"></div>
-    <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
-
-    <div class="preloader">
-        <div class='loader'></div>
-    </div>
-
-
-    <header class="header-section-2">
-        <div class="container">
-            <div class="header-wrapper">
-                <div class="logo">
-                    <a href="index.html"><img src="./images/logo/logo.png" alt="logo"/></a>
-                </div>
-                <div class="follow-area">
-                    <h6 class="title">Follow Me</h6>
-                    <ul class="social-icons justify-content-start choto">
-                        <li>
-                            <a href="#0"><i class="fab fa-facebook-f"></i></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="active"><i class="fab fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#0"><i class="fab fa-instagram"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="header-right d-none d-lg-block">
-                    <a href="#0" class="custom-button choto">Follow Me</a>
-                </div>
-                <div class="ellipsis-bar ml-auto d-lg-none">
-                    <i class="fas fa-ellipsis-h"></i>
-                </div>
-                <div class="header-bar">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-        <div class="header-bottom">
-            <div class="container">
-                <div class="header-bottom-wrapper">
-                    <ul class="menu">
-                        <li>
-                            <a href="#0">Home</a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="/">Home 1</a>
-                                </li>
-                                <li>
-                                    <a href="/home">Home 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#0">Blog</a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="/blog">Blog</a>
-                                </li>
-                                <li>
-                                    <a href="/blog?single">Blog Single</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="/award">awards</a>
-                        </li>
-                        <li>
-                            <a href="/contact">contact</a>
-                        </li>
-                        <li>
-                            <a href="#0" class="custom-button choto py-0 d-lg-none">Follow Me</a>
-                        </li>
-                    </ul>
-                    <form class="header-search-form d-none d-lg-flex">
-                        <input type="text" placeholder="Search Keyword"/>
-                        <button type="submit">
-                            <i class="flaticon-search-interface-symbol"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="header-troops">
-            <div class="close-btn">
-                <i class="fas fa-times"></i>
-            </div>
-            <h6 class="title">Follow Me</h6>
-            <ul class="social-icons justify-content-start choto">
-                <li>
-                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
-                </li>
-                <li>
-                    <a href="#0" class="active"><i class="fab fa-twitter"></i></a>
-                </li>
-                <li>
-                    <a href="#0"><i class="fab fa-instagram"></i></a>
-                </li>
-            </ul>
-            <form class="header-search-form">
-                <input type="text" placeholder="Search Keyword"/>
-                <button type="submit">
-                    <i class="flaticon-search-interface-symbol"></i>
-                </button>
-            </form>
-        </div>
-        <div class="star-area oh">
-            <div class="stars boro"></div>
-        </div>
-    </header>
+            <SiteHeader />
 
     <section class="hero-section">
         <a href="#about" class="banner-icon">
@@ -124,13 +15,13 @@ export const blog_single = () =>{
         </a>
         <div class="container">
             <div class="hero-content">
-                <h1 class="title" data-bg="Blog"><span>Blog Details</span></h1>
+                <h1 class="title" data-bg="БЛОГ"><span>Подробности Блога</span></h1>
                 <ul class="breadcrumb">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/">Домашняя Страница</a>
                     </li>
                     <li>
-                        <span>Blog Details</span>
+                        <span>Подробности Блога</span>
                     </li>
                 </ul>
             </div>
@@ -147,17 +38,17 @@ export const blog_single = () =>{
                         </div>
                         <div class="post-content">
                             <div class="post-date">
-                                <a href="#0"><i class="flaticon-clock"></i>25 December</a>
+                                <a href="#0"><i class="flaticon-clock"></i>25 Декабря</a>
                             </div>
                             <ul class="post-tags">
                                 <li>
-                                    <a href="#0">Video</a>
+                                    <a href="#0">Видео</a>
                                 </li>
                                 <li>
                                     <a href="#0">Invest Ment</a>
                                 </li>
                                 <li>
-                                    <a href="#0">Movie</a>
+                                    <a href="#0">Фильм</a>
                                 </li>
                             </ul>
                             <h4 class="title">
@@ -186,11 +77,11 @@ export const blog_single = () =>{
                             <img src="./images/blog/author.png" alt="blog"/>
                         </div>
                         <h6 class="title">Martin Hook</h6>
-                        <span class="info">Authors</span>
+                        <span class="info">Автор</span>
                         <p>A urna vestibulum blandit. Amet adipiscing morbi nam, mauris luctus phasellus ligula ultricies massa, ac nullam, aliquam gravida dapibus quis, praesent pede inte</p>
                     </div>
                     <div class="comment-wrapper">
-                        <h3 class="m-title"><span>Com</span>ments (18)</h3>
+                        <h3 class="m-title"><span>Комен</span>тарии (18)</h3>
                         <ul class="comment-area">
                             <li>
                                 <div class="comment-item">
@@ -233,19 +124,19 @@ export const blog_single = () =>{
                         </ul>
                     </div>
                     <div class="comment-wrapper">
-                        <h3 class="m-title"><span>Post</span> Comment</h3>
+                        <h3 class="m-title"><span>Оставить</span> Комментарий</h3>
                         <form class="contact-form mb-30-none">
                             <div class="contact-form-group">
-                                <input type="text" placeholder="Full Name" name="name"/>
+                                <input type="text" placeholder="Полное Имя" name="name"/>
                             </div>
                             <div class="contact-form-group">
-                                <input type="text" placeholder="Email/Phone Number" name="email"/>
+                                <input type="text" placeholder="Email/Номер Телефона" name="email"/>
                             </div>
                             <div class="contact-form-group">
-                                <textarea name="message" id="message" placeholder="Type Message"></textarea>
+                                <textarea name="message" id="message" placeholder="Оставить Комментарий"></textarea>
                             </div>
                             <div class="contact-form-group">
-                                <button type="submit">Post a Comment</button>
+                                <button type="submit">Опубликовать</button>
                             </div>
                         </form>
                     </div>
@@ -253,80 +144,10 @@ export const blog_single = () =>{
             </div>
         </div>
     </section>
- 
-    <footer class="bg_img footer-overlay" data-background="./images/footer-bg.jpg">
-        <a href="#0" class="banner-icon">
-            <i class="flaticon-up-arrow-angle"></i>
-        </a>
-        <div class="footer-shape-bg bg_img" data-background="./images/footer-shape.png"></div>
-        <div class="container">
-            <div class="footer-area">
-                <div class="footer-widget widget-about">
-                    <div class="logo">
-                        <img src="./images/logo/logo.png" alt="logo"/>
-                    </div>
-                    <p>Dempor pede libero dapi useu class venenatis ut bibendum quam ut nibh necm. NonhonPede mollis vel vitae dorpis Sed odio ultrices id, est eu mauris.</p>
-                </div>
-                <div class="footer-widget widget-link">
-                    <h5 class="title">Useful Link</h5>
-                    <ul>
-                        <li>
-                            <a href="#0">About Us</a>
-                        </li>
-                        <li>
-                            <a href="#0">History</a>
-                        </li>
-                        <li>
-                            <a href="#0">Faqs</a>
-                        </li>
-                        <li>
-                            <a href="#0">Skills</a>
-                        </li>
-                        <li>
-                            <a href="#0">Award</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-widget widget-link">
-                    <h5 class="title">My Awards</h5>
-                    <ul>
-                        <li>
-                            <a href="#0">FIFA The Best</a>
-                        </li>
-                        <li>
-                            <a href="#0">MOTM</a>
-                        </li>
-                        <li>
-                            <a href="#0">Uefa The Best</a>
-                        </li>
-                        <li>
-                            <a href="#0">POTY</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-widget widget-follow">
-                    <h5 class="title">Follow Me</h5>
-                    <p>At vero eos et accusamus eiusto odio dignissimos ducimus qui blanditiis praesentium voltatum </p>
-                    <ul class="social-icons choto">
-                        <li>
-                            <a href="#0"><i class="fab fa-facebook-f"></i></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="active"><i class="fab fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#0"><i class="fab fa-instagram"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p class="m-0">
-                    &copy; All Right Reserved By <a href="#0">Viserlab</a>
-                </p>
-            </div>
-        </div>
-    </footer>
+    {/* <Test_Comen/>
+  */}
+    <SiteFooter /> 
+    
         </Fragment>
     )
 }

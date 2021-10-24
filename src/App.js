@@ -14,25 +14,27 @@ import './css/owl.min.css'
 import './css/flaticon.css'  
 import './css/odometer.css'
 
+
 import { Home } from './pages/Home';
 import { SecondHome } from './pages/SecondHome';
+import { SiteHeader } from './pages/components/header';
 
 
 function App() {
   return (
+ 
    <BrowserRouter>
 
-     <div className="container pt-4">
         <Switch>
-            <Route path={'/'} exact component={Home} />
-            <Route path={'/home'} component={SecondHome} />
+            <Route path={'/home'} exact component={Home} />
+           {/*  <Route path={'/home'} component={SecondHome} /> */}
             <Route path={'/award'} component={award}/>
-            <Route path={'/blog?single'} component={blog_single}/>
+            <Route path={'/blog_single'} component={blog_single}/>
             <Route path={'/blog'} component={blog}/>
             <Route path={'/contact'} component={Contact}/>
   
         </Switch>
-    </div>
+   
    </BrowserRouter>
   );
 }

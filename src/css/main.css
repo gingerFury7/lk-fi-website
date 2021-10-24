@@ -72,7 +72,8 @@ html {
     line-height: 1.4;
 }
 header {
-    background: black;
+    
+    background: #272440;
 }
 
 .sticky-test{
@@ -89,6 +90,10 @@ background: transparent;
     top: 0;
     margin-top: 98px;
     z-index: 99;
+}
+
+.contact-background {
+    background-color: #191634;
 }
 /*
  * Remove text-shadow in selection highlight:
@@ -1776,6 +1781,16 @@ footer .container {
    
 }
 
+#image-slider {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+  
+  #image-slider.fadeOut {
+    opacity: 0;
+  }
+  
+
 .menu {
     font-family: "Josefin Sans", sans-serif;
     font-weight: 500;
@@ -1797,7 +1812,7 @@ footer .container {
     .menu li .submenu {
         position: absolute;
         top: calc(100% + 10px);
-        left: 0;
+        left: 190px;
         min-width: 220px;
         background: #272440;
         -webkit-transition: all ease 0.3s;
@@ -4294,6 +4309,7 @@ div[class*="col"]:nth-of-type(4n + 4) .info-inner {
     padding: 300px 0 130px;
     position: relative;
     overflow: hidden;
+    margin-top: -150px;
 }
 
 .hero-section::before, .hero-section::after {
@@ -4392,6 +4408,7 @@ div[class*="col"]:nth-of-type(4n + 4) .info-inner {
 .breadcrumb li span {
     position: relative;
     padding: 0 5px;
+    color: #F5F5F5;
 }
 
 .breadcrumb li span::after {
@@ -4961,6 +4978,7 @@ div[class*="col"]:nth-of-type(4n + 4) .info-inner {
 
 .post-item.post-details .post-content {
     border: none;
+    color: #fff;
 }
 
 .post-item.post-details .post-content p, .post-item.post-details .post-content blockquote {
