@@ -54,7 +54,7 @@ export const SiteHeader = () =>{
                     <ul class="sub-nav">
                     
                                         <li>
-                                            <a href="/home" class="custom-button choto py-0 d-lg-none">Домашняя страница</a>
+                                            <a href="#0" class="custom-button choto py-0 d-lg-none">Домашняя страница</a>
                                         {/* <ul class="submenu">
                                                 <li>
                                                     <a href="/">Home 1</a>

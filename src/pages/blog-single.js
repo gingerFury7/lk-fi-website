@@ -144,10 +144,48 @@ export const blog_single = () =>{
             </div>
         </div>
     </section>
-    {/* <Test_Comen/>
-  */}
+    <
+ 
     <SiteFooter /> 
     
         </Fragment>
     )
 }
+/* 
+
+
+export const ModalBlogPost = ({posts_title, posts_rich_text ,posts_author_icon, posts_author ,posts_author_description,posts_published_at,  active , setActive}) =>{
+    return(
+      
+        <section class={active ? "blog-section-modals" : "blog-section-modal"} id="about"  onClick={()=> setActive(false)}>
+        <div class="container" >
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="post-item post-details">
+                        <div class="post-content">
+                            <div class="post-date">
+                                <a href="#0"><i class="flaticon-clock"></i>{posts_published_at}</a>
+                            </div>
+                            <h4 class="title">
+                                {posts_title}
+                            </h4>
+                            <p>
+                                {posts_rich_text}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="post-author">
+                        <div class="thumb">
+                            <img src={posts_author_icon} alt="blog"/>
+                        </div>
+                        <h6 class="title">{posts_author}</h6>
+                        <span class="info">Автор</span>
+                        <p>{posts_author_description}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    )
+} */

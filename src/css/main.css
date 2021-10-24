@@ -112,6 +112,47 @@ background: transparent;
     color: #F5F5F5;
 }
 
+
+
+.blog-section-modal{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+} 
+
+.blog-section-modals{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(39,36,64, 0.4);
+    position: fixed;
+    top: 20px;
+    left: 0;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.85);
+}
+
+
+.container-modal-blog {
+    
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #272440;
+}
+
+
 /*
  * A better looking default horizontal rule
  */
@@ -4256,6 +4297,8 @@ div[class*="col"]:nth-of-type(4n + 4) .info-inner {
     position: relative;
     font-size: 18px;
 }
+
+
 
 @media (min-width: 768px) {
     .pagination li {

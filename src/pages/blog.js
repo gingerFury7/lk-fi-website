@@ -1,13 +1,15 @@
-import  React, { Fragment } from "react";
+import  React, { useState } from "react";
 import { SiteFooter } from "./components/footer";
 import { SiteHeader } from "./components/header";
+import list_posts from "./post.json";
+
+/* import {ModalBlogPost} from "./blog-single"; */
 
 
 export const blog =()=>{
     return(
 
-<Fragment>
-        
+      <>  
         <SiteHeader />
 
 <section class="hero-section">
@@ -32,75 +34,119 @@ export const blog =()=>{
 <section class="blog-section padding-top padding-bottom" id="about">
     <div class="container">
         <div class="row justify-content-center mb-40-60-none">
-            <BlogPost />
-            <BlogPost />
-            <BlogPost />
-            <BlogPost />
+        <Pagination_Post />
         </div>
-        <ul class="pagination mt-4">
-            <li class="arrows disabled">
-                <span><i class="flaticon-angle-pointing-to-left"></i></span>
-            </li>
-            <li>
-                <a href="#0">01</a>
-            </li>
-            <li>
-                <span>02</span>
-            </li>
-            <li>
-                <a href="#0">03</a>
-            </li>
-            <li class="arrows">
-                <a href="#0"><i class="flaticon-angle-arrow-pointing-to-right"></i></a>
-            </li>
-        </ul>
     </div>
 </section>
 
    
     
         <SiteFooter />
-</Fragment>
+</>
 
     )
 }
 
 
 
-export const BlogPost = () =>{
-    return (
-        <Fragment>
-            <div class="col-lg-10">
-                        <div class="post-item">
-                            <div class="post-thumb">
-                                <a href="blog-single.html">
-                                    <img src="./images/blog/blog7.jpg" alt="blog"/>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <div class="post-date">
-                                    <a href="#0"><i class="flaticon-clock"></i>25 Декабря</a>
-                                </div>
-                                <ul class="post-tags">
-                                    <li>
-                                        <a href="#0">Видео</a>
-                                    </li>
-                                    <li>
-                                        <a href="#0">Invest Ment</a>
-                                    </li>
-                                    <li>
-                                        <a href="#0">Фильм</a>
-                                    </li>
-                                </ul>
-                                <h4 class="title">
-                                    <a href="blog-single.html">Predefined chunks as necessary making first true genss</a>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, cras non sagittis pellentesque donec, nunc eleifend turpmes eu, sed ullamcorper libero magna ac mauris, mollis sem vivamus ut commodo id. Vestibulum cursus v
-                                    estibulumviverra fusce justo, quisque id porttitor ullamcor</p>
-                                <a href="blog-single.html" class="custom-button">Подробности</a>
-                            </div>
+
+
+
+
+const Post_Component = ({posts}) =>{
+
+    /* const[modalActive, setModalActive] = useState(false); */
+    return(
+        <>
+              {
+                    posts.map((e,i)=> <div  key={i} class="col-lg-10">
+                    <div class="post-item">
+                        <div class="post-thumb">
+                            <a href="blog-single.html">
+                                <img src={e.img} alt="blog"/>
+                            </a>
                         </div>
+                        <div class="post-content">
+                            <div class="post-date">
+                                <a href="#0"><i class="flaticon-clock"></i>{e.published_at}</a>
+                            </div>
+                            <ul class="post-tags">
+                                <li>
+                                    <a href="#0">Видео</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Invest Ment</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Фильм</a>
+                                </li>
+                            </ul>
+                            <h4 class="title">
+                                <a href="/blog_single">{e.title}</a>
+                            </h4>
+                            <p>{e.description}</p>
+                            <a href="#0" class="custom-button" onClick={() => setModalActive(true)}>Подробности</a>
+                        </div>
+                        
+                        {/* <ModalBlogPost posts_title={e.title} posts_rich_text={e.rich_text} posts_author_icon={e.author_icon}
+                         posts_author={e.author} posts_author_description={e.author_description} posts_published_at={e.published_at}  active={modalActive} setActive={setModalActive} /> */}
                     </div>
-        </Fragment>
+                </div>
+                        )
+                }
+
+        </>
+    )
+}  
+
+const Pagination = ({postPerPage, totalPost , paginate}) => {
+    
+    const pageNumbers = [];
+
+
+    for(let i = 1; i <=Math.ceil(totalPost / postPerPage); i++){
+        pageNumbers.push(i);
+         
+    }
+
+    return(
+        <nav>
+            <ul class="pagination mt-4">
+           
+                {pageNumbers.map( number =>
+                     
+                 <li key={number}  >
+                     <a onClick={() => paginate(number)} href="#0" >{number}</a>
+                 </li>
+                 
+                 )}
+               
+            </ul>
+        </nav>
     )
 }
+
+export default function Pagination_Post(){
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postPerPage] = useState(3);
+
+//get current post
+  const  indexOfLastPost = currentPage * postPerPage;
+  const  indexOfFirstPost = indexOfLastPost - postPerPage;
+  const currentPost = list_posts.posts.slice( indexOfFirstPost , indexOfLastPost);  
+ 
+
+// Change Page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+        return(
+            <>
+               
+               <Post_Component posts={currentPost} />
+               <Pagination postPerPage={postPerPage} totalPost={list_posts.posts.length} paginate={paginate} />
+
+        </>
+        )
+    
+  } 
