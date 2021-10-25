@@ -1,4 +1,4 @@
-import  React, { Fragment, useContext } from "react";
+import  React, { Component, useContext, useEffect, useState } from "react";
 import { Context } from "..";
 import { BannerPlayer } from "./components/bannerPlayer";
 import { SectionAbout } from "./components/sectionAbout";
@@ -7,6 +7,7 @@ import { SectionGallery } from "./components/sectionGallery";
 import { SectionHistory } from "./components/sectionHistory";
 import { SectionMoments } from "./components/sectionMoments";
 import { SectionRecords } from "./components/sectionRecords";
+
 
 
 
@@ -26,9 +27,14 @@ export const Home = () => {
             <SectionMoments />
            {/*  <SectionClient />  */}
           {/*   <SectionBlog /> */}
-          
+         
             
     </body>
         
     )
 }
+
+
+
+
+

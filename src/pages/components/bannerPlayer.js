@@ -1,8 +1,22 @@
-import React, { Fragment } from "react"
+import React, { Fragment, useEffect, useState } from "react"
+
+import {observer} from "mobx-react-lite";
+import axios from "axios";
 
 
+export const BannerPlayer = observer(() =>{
+    /* const [totalFetch, setTotalFetch] = useState(null);
+    
+    axios.get("https://cdn.lk-ft.ru/footballers").then((res) => console.log(res))
+    
+   
+    
+     useEffect(()=>{
+        axios.get("https://cdn.lk-ft.ru/footballers").then((res) => setTotalFetch(res.data[0]));
+     }, [])
 
-export const BannerPlayer = () =>{
+     console.log("tests :" ,totalFetch); */
+   
     return(
         <Fragment>
             <section class="banner-section-2">
@@ -60,4 +74,4 @@ export const BannerPlayer = () =>{
             </section>
         </Fragment>
     )
-}
+})
