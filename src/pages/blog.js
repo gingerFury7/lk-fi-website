@@ -87,9 +87,6 @@ const Post_Component = ({posts }) =>{
                             <p>{e.description}</p>
                             <a href="#single-post" class="custom-button" onClick={()=> history.push(BLOG_SINGLE_ROUTE+'/'+e.id)} >Подробности</a>
                         </div>
-                        
-                        {/* <ModalBlogPost posts_title={e.title} posts_rich_text={e.rich_text} posts_author_icon={e.author_icon}
-                         posts_author={e.author} posts_author_description={e.author_description} posts_published_at={e.published_at}  active={modalActive} setActive={setModalActive} /> */}
                     </div>
                 </div>
                         )
