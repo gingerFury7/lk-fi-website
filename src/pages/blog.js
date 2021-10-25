@@ -85,7 +85,7 @@ const Post_Component = ({posts }) =>{
                                 <a href="/blog_single">{e.title}</a>
                             </h4>
                             <p>{e.description}</p>
-                            <a href="#0" class="custom-button" onClick={()=> history.push(BLOG_SINGLE_ROUTE+'/'+e.id)} >Подробности</a>
+                            <a href="#single-post" class="custom-button" onClick={()=> history.push(BLOG_SINGLE_ROUTE+'/'+e.id)} >Подробности</a>
                         </div>
                         
                         {/* <ModalBlogPost posts_title={e.title} posts_rich_text={e.rich_text} posts_author_icon={e.author_icon}
@@ -116,7 +116,7 @@ const Pagination = ({postPerPage, totalPost , paginate}) => {
                 {pageNumbers.map( number =>
                      
                  <li key={number}  >
-                     <a onClick={() => paginate(number)} href="#0" >{number}</a>
+                     <a onClick={() => paginate(number)} href="#about" >{number}</a>
                  </li>
                  
                  )}

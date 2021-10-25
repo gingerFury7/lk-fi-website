@@ -14,13 +14,13 @@ export const Blog_Single = () =>{
     const posts = list_posts.posts[it_number];
    
 
-    console.log(posts.title)
+    console.log(posts)
 
     
     return( 
         <Fragment>
             
-    <section class="hero-section">
+    <section class="hero-section" id="single-post">
         <a href="#about" class="banner-icon">
             <i class="flaticon-down-arrow"></i>
         </a>
