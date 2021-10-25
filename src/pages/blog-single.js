@@ -1,14 +1,22 @@
-import React, { Fragment } from "react";
-import { SiteFooter } from "./components/footer";
-import { SiteHeader } from "./components/header";
-import Test_Comen from "./components/testComm/coments";
+import React, { Fragment } from 'react'
+import { Container } from 'react-bootstrap'
+
+export const SinglePost = () => {
+    return (
+        <Container>
+            <Col md={4} >
+                
+            </Col>
+        </Container>
+    )
+}
+
+
 
 export const blog_single = () =>{
     return(
         <Fragment>
             
-            <SiteHeader />
-
     <section class="hero-section">
         <a href="#about" class="banner-icon">
             <i class="flaticon-down-arrow"></i>
@@ -144,10 +152,6 @@ export const blog_single = () =>{
             </div>
         </div>
     </section>
-    <
- 
-    <SiteFooter /> 
-    
         </Fragment>
     )
 }
