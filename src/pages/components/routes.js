@@ -2,7 +2,7 @@
 import { Auth } from "../Auth"
 import { award } from "../award"
 import PostList from "../blog"
-import { blog_single } from "../blog-single"
+import { Blog_Single } from "../blog-single"
 import { Contact } from "../contact"
 import { Home } from "../Home"
 import  AdminPanel  from "./AdminPanel"
@@ -32,7 +32,7 @@ export const publicRoutes = [
     },
     {
         path: BLOG_SINGLE_ROUTE + '/:id',
-        Component : blog_single  
+        Component : Blog_Single 
     },
     {
         path: AUTH_ROUTE,

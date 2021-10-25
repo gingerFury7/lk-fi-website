@@ -1,21 +1,23 @@
-import React, { Fragment } from 'react'
-import { Col, Container } from 'react-bootstrap'
-
-
-export const SinglePost = () => {
-    return (
-        <Container>
-            <Col md={4} >
-
-            </Col>
-        </Container>
-    )
-}
+import React, { Fragment, useEffect, useState } from 'react'
+import { useParams } from 'react-router'
+import list_posts from "./post.json";
 
 
 
-export const blog_single = () =>{
-    return(
+
+export const Blog_Single = () =>{
+   //  const [posts, setPosts] = useState({info: []})
+
+    const params = useParams()
+    const it_number = params.id;
+
+    const posts = list_posts.posts[it_number];
+   
+
+    console.log(posts.title)
+
+    
+    return( 
         <Fragment>
             
     <section class="hero-section">
@@ -43,11 +45,11 @@ export const blog_single = () =>{
                 <div class="col-lg-10">
                     <div class="post-item post-details">
                         <div class="post-thumb">
-                            <img src="./images/blog/blog5.jpg" alt="blog"/>
+                            <img src={posts.img} alt="blog"/>
                         </div>
                         <div class="post-content">
                             <div class="post-date">
-                                <a href="#0"><i class="flaticon-clock"></i>25 Декабря</a>
+                                <a href="#0"><i class="flaticon-clock"></i>{posts.published_at}</a>
                             </div>
                             <ul class="post-tags">
                                 <li>
@@ -61,33 +63,20 @@ export const blog_single = () =>{
                                 </li>
                             </ul>
                             <h4 class="title">
-                                Sollicitudin augue morbma lesuadad ignisim
+                                {posts.title}
                             </h4>
-                            <p>Lorem ipsum dolor sit amet, cras non sagittis pellentesque donec, nunc eleifend turpmes eu, sed ullamcorper libero magna ac mauris, mollis sem vivamus ut commodo id. Vestibulum cursus v
-                                estibulumviverra fusce justo, quisque id porttitor ullamcor</p>
-                            <p> condimentum morbi, et dui consequat, elit dui morbi quis. Elit ad commodo pede lectus vulputate, leo nunc nibh suscipit ut ut, vel massa, pellentesque non ipsum. Nulla in venenatis donec, amet vestibulum interdum justo id. Eget vestibulum in lacinia massa turpis, hac cursus dapibus aliquam ac pede, rhoncus  semper. Pellentesque erat, blandit orci vestibulum en, pellentesque felis viverra in pellent
-                                esque dolor, est Massa sed sed congue velit, tortor mattis vestibulum et elit n
-                                ec nunc, hymenaeos sed ullamcorper non, ipsum </p>
-                            <blockquote>
-                                One touch of a red-hot stove is usually all we need to avoid that kind of discomfort in the future. The same is true as we experience the emotional sensation of stress from our first instances of social rejection ridicule. We quickly learn to fear and thus automatically.
-                            </blockquote>
                             <p>
-                                Lorem ipsum dolor sit amet, cras non sagittis pellentesque donec, nunc eleifend turpmes eu, sed ullamcorper libero magna ac mauris, mollis sem vivamus ut commodo id. Vestibulum cursus vestibulumviverra fusce justo, quisque id porttitor ullamcor
-                            </p>
-                            <p>
-                                condimentum morbi, et dui consequat, elit dui morbi quis. Elit ad commodo pede lectus vulputate, leo nunc nibh suscipit ut ut, vel massa, pellentesque non ipsum. Nulla in venenatis donec, amet vestibulum interdum justo id. Eget vestibulum in lacinia massa turpis, hac cursus dapibus aliquam ac pede, rhoncus  semper. Pellentesque erat, blandit orci vestibulum en, pellentesque felis viverra in pellent
-                                esque dolor, est Massa sed sed congue velit, tortor mattis vestibulum et elit n
-                                ec nunc, hymenaeos sed ullamcorper non, ipsum 
+                                {posts.rich_text}
                             </p>
                         </div>
                     </div>
                     <div class="post-author">
                         <div class="thumb">
-                            <img src="./images/blog/author.png" alt="blog"/>
+                            <img src={posts.author_icon} alt="blog"/>
                         </div>
-                        <h6 class="title">Martin Hook</h6>
+                        <h6 class="title">{posts.author}</h6>
                         <span class="info">Автор</span>
-                        <p>A urna vestibulum blandit. Amet adipiscing morbi nam, mauris luctus phasellus ligula ultricies massa, ac nullam, aliquam gravida dapibus quis, praesent pede inte</p>
+                        <p>{posts.author_description}</p>
                     </div>
                     <div class="comment-wrapper">
                         <h3 class="m-title"><span>Комен</span>тарии (18)</h3>
@@ -154,9 +143,9 @@ export const blog_single = () =>{
         </div>
     </section>
         </Fragment>
-    )
+    );
 }
-/* 
+/*
 
 
 export const ModalBlogPost = ({posts_title, posts_rich_text ,posts_author_icon, posts_author ,posts_author_description,posts_published_at,  active , setActive}) =>{

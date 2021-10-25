@@ -136,14 +136,14 @@ export const SiteHeader = observer(() => {
                                         </li>
                                         <li>
                                             <a href={BLOG_ROUTE}>Блог</a>
-                                            {<ul class="submenu">
+                                            {/* {<ul class="submenu">
                                                 <li>
                                                     <a href={BLOG_ROUTE}>Блог</a>
                                                 </li>
                                                 <li>
                                                     <a href={BLOG_SINGLE_ROUTE}>Одиночный блог</a>
                                                 </li>
-                                            </ul>}
+                                            </ul>} */}
                                         </li>
                                         <li>
                                             <a href={AWARD_ROUTE}>Награды</a>
