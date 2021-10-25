@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
-import { Container } from 'react-bootstrap'
+import { Col, Container } from 'react-bootstrap'
+
 
 export const SinglePost = () => {
     return (
         <Container>
             <Col md={4} >
-                
+
             </Col>
         </Container>
     )
