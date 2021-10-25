@@ -7,7 +7,6 @@ export const Contact =() =>{
         
            <html>
                <body>
-                <SiteHeader />
 <div className="contact-background">
                     <section class="hero-section">
                         <a href="#about" class="banner-icon">
@@ -106,7 +105,6 @@ export const Contact =() =>{
                         </div>
                     </div>
 </div>
-    <SiteFooter />
                </body>
            </html>
 

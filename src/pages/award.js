@@ -8,8 +8,6 @@ import list_awards from "./awards.json" ;
 export const award = () =>{
     return(
         <>
-            <SiteHeader />
-
             <section class="hero-section">
                 <a href="#about" class="banner-icon">
                     <i class="flaticon-down-arrow"></i>
@@ -36,8 +34,6 @@ export const award = () =>{
                     </div>
                 </div>
             </section>
-
-            <SiteFooter />
         </>
     )
 }

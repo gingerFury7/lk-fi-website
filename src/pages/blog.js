@@ -1,61 +1,61 @@
-import  React, { useState } from "react";
+import  React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
+import { Context } from "..";
 import { SiteFooter } from "./components/footer";
 import { SiteHeader } from "./components/header";
+import { BLOG_SINGLE_ROUTE } from "./components/utils/consts";
 import list_posts from "./post.json";
+import {observer} from "mobx-react-lite";
+import { Row } from "react-bootstrap";
 
-/* import {ModalBlogPost} from "./blog-single"; */
 
-
-export const blog =()=>{
+const PostList = observer(()=>{
+    const {posts} = useContext(Context)
     return(
+        
+        <>
+            <section class="hero-section">
+                <a href="#about" class="banner-icon">
+                    <i class="flaticon-down-arrow"></i>
+                </a>
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="title" data-bg="БЛОГ"><span>Последние Новости</span></h1>
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="/">Домашняя Страница</a>
+                            </li>
+                            <li>
+                                <span>Блог</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-      <>  
-        <SiteHeader />
+            <section class="blog-section padding-top padding-bottom" id="about">
+                <div class="container">
+                    <div class="row justify-content-center mb-40-60-none d-flex flex-column " >
+                   
+                        <Pagination_Post  />
+                   
+                    
+                  </div>
+                </div>
+            </section>
+        </>
+    );
+});
 
-<section class="hero-section">
-    <a href="#about" class="banner-icon">
-        <i class="flaticon-down-arrow"></i>
-    </a>
-    <div class="container">
-        <div class="hero-content">
-            <h1 class="title" data-bg="БЛОГ"><span>Последние Новости</span></h1>
-            <ul class="breadcrumb">
-                <li>
-                    <a href="/">Домашняя Страница</a>
-                </li>
-                <li>
-                    <span>Блог</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="blog-section padding-top padding-bottom" id="about">
-    <div class="container">
-        <div class="row justify-content-center mb-40-60-none">
-        <Pagination_Post />
-        </div>
-    </div>
-</section>
-
-   
-    
-        <SiteFooter />
-</>
-
-    )
-}
+ 
 
 
 
+const Post_Component = ({posts }) =>{
 
+    const history = useHistory()
 
-
-
-const Post_Component = ({posts}) =>{
-
-    /* const[modalActive, setModalActive] = useState(false); */
+    console.log(history)
     return(
         <>
               {
@@ -85,7 +85,7 @@ const Post_Component = ({posts}) =>{
                                 <a href="/blog_single">{e.title}</a>
                             </h4>
                             <p>{e.description}</p>
-                            <a href="#0" class="custom-button" onClick={() => setModalActive(true)}>Подробности</a>
+                            <a href="#0" class="custom-button" onClick={()=> history.push(BLOG_SINGLE_ROUTE+'/'+e.id)} >Подробности</a>
                         </div>
                         
                         {/* <ModalBlogPost posts_title={e.title} posts_rich_text={e.rich_text} posts_author_icon={e.author_icon}
@@ -111,7 +111,7 @@ const Pagination = ({postPerPage, totalPost , paginate}) => {
 
     return(
         <nav>
-            <ul class="pagination mt-4">
+            <ul class="pagination mt-4 ">
            
                 {pageNumbers.map( number =>
                      
@@ -126,7 +126,7 @@ const Pagination = ({postPerPage, totalPost , paginate}) => {
     )
 }
 
-export default function Pagination_Post(){
+ function Pagination_Post(){
 
     const [currentPage, setCurrentPage] = useState(1);
     const [postPerPage] = useState(3);
@@ -143,10 +143,12 @@ export default function Pagination_Post(){
         return(
             <>
                
-               <Post_Component posts={currentPost} />
+               <Post_Component posts={currentPost}  />
                <Pagination postPerPage={postPerPage} totalPost={list_posts.posts.length} paginate={paginate} />
 
         </>
         )
     
   } 
+
+  export default PostList;
