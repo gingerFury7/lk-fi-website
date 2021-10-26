@@ -5,17 +5,6 @@ import axios from "axios";
 
 
 export const BannerPlayer = observer(() =>{
-    /* const [totalFetch, setTotalFetch] = useState(null);
-    
-    axios.get("https://cdn.lk-ft.ru/footballers").then((res) => console.log(res))
-    
-   
-    
-     useEffect(()=>{
-        axios.get("https://cdn.lk-ft.ru/footballers").then((res) => setTotalFetch(res.data[0]));
-     }, [])
-
-     console.log("tests :" ,totalFetch); */
    
     return(
         <Fragment>

@@ -6,7 +6,7 @@ import { SiteHeader } from "./components/header";
 import { BLOG_SINGLE_ROUTE } from "./components/utils/consts";
 import list_posts from "./post.json";
 import {observer} from "mobx-react-lite";
-import { Row } from "react-bootstrap";
+
 
 
 const PostList = observer(()=>{
