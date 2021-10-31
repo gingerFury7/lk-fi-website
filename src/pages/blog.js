@@ -1,16 +1,15 @@
-import  React, { useContext, useState } from "react";
+import  React, {  useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Context } from "..";
-import { SiteFooter } from "./components/footer";
-import { SiteHeader } from "./components/header";
+
 import { BLOG_SINGLE_ROUTE } from "./components/utils/consts";
 import list_posts from "./post.json";
 import {observer} from "mobx-react-lite";
+import axios from "axios";
 
 
 
 const PostList = observer(()=>{
-    const {posts} = useContext(Context)
+
     return(
         
         <>
@@ -54,21 +53,22 @@ const PostList = observer(()=>{
 const Post_Component = ({posts }) =>{
 
     const history = useHistory()
-
-    console.log(history)
+    console.log("proverka0 ",posts)
+    JSON.stringify(posts);
+    console.log("proverka1 ",posts )
     return(
         <>
               {
-                    posts.map((e,i)=> <div  key={i} class="col-lg-10">
+                    posts.map((e,i)=>   <div  key={i} class="col-lg-10">
                     <div class="post-item">
                         <div class="post-thumb">
                             <a href="blog-single.html">
-                                <img src={e.img} alt="blog"/>
+                                <img src={'https://cdn.lk-ft.ru'+e.Post_image.url} alt="blog"/>
                             </a>
                         </div>
                         <div class="post-content">
                             <div class="post-date">
-                                <a href="#0"><i class="flaticon-clock"></i>{e.published_at}</a>
+                                <a href="#0"><i class="flaticon-clock"></i>{e.Post_Date}</a>
                             </div>
                             <ul class="post-tags">
                                 <li>
@@ -82,13 +82,13 @@ const Post_Component = ({posts }) =>{
                                 </li>
                             </ul>
                             <h4 class="title">
-                                <a href="/blog_single">{e.title}</a>
+                                <a href="/blog_single">{e.Post_Title}</a>
                             </h4>
-                            <p>{e.description}</p>
+                            <p>{e.Post_teaser}</p>
                             <a href="#single-post" class="custom-button" onClick={()=> history.push(BLOG_SINGLE_ROUTE+'/'+e.id)} >Подробности</a>
                         </div>
                     </div>
-                </div>
+                </div> 
                         )
                 }
 
@@ -100,6 +100,7 @@ const Pagination = ({postPerPage, totalPost , paginate}) => {
     
     const pageNumbers = [];
 
+    console.log("leng" , totalPost)
 
     for(let i = 1; i <=Math.ceil(totalPost / postPerPage); i++){
         pageNumbers.push(i);
@@ -126,22 +127,47 @@ const Pagination = ({postPerPage, totalPost , paginate}) => {
  function Pagination_Post(){
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [postPerPage] = useState(3);
+    const [postPerPage] = useState(4);
 
 //get current post
   const  indexOfLastPost = currentPage * postPerPage;
   const  indexOfFirstPost = indexOfLastPost - postPerPage;
-  const currentPost = list_posts.posts.slice( indexOfFirstPost , indexOfLastPost);  
  
 
+  const [posts, setPosts] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [isError, setIsError] = React.useState(false);
+  const fetchData = () => {
+    fetch('https://cdn.lk-ft.ru/posts')
+      .then((response) => response.json())
+      .then((data) => {
+        setIsLoading(false);
+        setPosts(data);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+        console.log(error);
+      });
+  };
+  React.useEffect(() => {
+    fetchData();
+  }, []);
+  if (isLoading) {
+      return <div>Загрузка...</div>;
+    }
+
+    
+  
+  
 // Change Page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
         return(
             <>
                
-               <Post_Component posts={currentPost}  />
-               <Pagination postPerPage={postPerPage} totalPost={list_posts.posts.length} paginate={paginate} />
+               <Post_Component posts={posts}  />
+               <Pagination postPerPage={postPerPage} totalPost={posts.length} paginate={paginate} />
 
         </>
         )

@@ -1,23 +1,18 @@
-import { ADMIN_ROUTE, AUTH_ROUTE, AWARD_ROUTE, BLOG_ROUTE, BLOG_SINGLE_ROUTE, CONTACT_ROUTE, HOMEPAGE_ROUTE } from "./utils/consts";
+import { ADMIN_ROUTE, AUTH_ROUTE, AWARD_ROUTE, BLOG_ROUTE, CONTACT_ROUTE, HOMEPAGE_ROUTE } from "./utils/consts";
 import React, { useContext } from 'react';
 import { Context } from "../..";
 import {observer} from "mobx-react-lite";
 import { useHistory } from "react-router-dom";
 
 
-export const SiteHeader = observer(() => {
+export const SiteHeader = () => {
     const {user} = useContext(Context)
     const history = useHistory()
     return (
         <div>
             <div class="overlay"></div>
                     <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
-
-            {/*  <div class="preloader">
-                    <div class='loader'></div>
-                </div>*/}
-
-                {user.isAuth ? <><header class="header-section-2 ">
+               <header class="header-section-2 ">
                     <div class="container">
                         <div class="header-wrapper">
                             <div class="logo">
@@ -164,7 +159,8 @@ export const SiteHeader = observer(() => {
                                 </div>
                             </div>
                         </div>
-                </section></> : <><header class="header-section-2">
+                </section>
+                <header class="header-section-2">
                     <div class="container">
                         <div class="header-wrapper">
                             <div class="logo">
@@ -188,8 +184,7 @@ export const SiteHeader = observer(() => {
                                 <a href="#0" class="custom-button choto">Следовать</a>
                             </div>
                             <div class="header-right d-none d-lg-block">
-                                <a href="#0" class="custom-button choto ml-2" 
-                                onClick={() => user.setIsAuth(true)}
+                                <a href={AUTH_ROUTE} class="custom-button choto ml-2" 
                                 >Авторизация</a>
                             </div>
                             <div class="ellipsis-bar ml-auto d-lg-none">
@@ -204,8 +199,8 @@ export const SiteHeader = observer(() => {
             
                         </div>
                     </div></header>
-                    </>}
+                    
     </div>
                     
     )
-})
+}

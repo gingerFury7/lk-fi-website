@@ -1,9 +1,5 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React from 'react'
 import { useParams } from 'react-router'
-import list_posts from "./post.json";
-
-
-
 
 export const Blog_Single = () =>{
    //  const [posts, setPosts] = useState({info: []})
@@ -11,14 +7,64 @@ export const Blog_Single = () =>{
     const params = useParams()
     const it_number = params.id;
 
-    const posts = list_posts.posts[it_number];
-   
+    const [player, setPlayer] = React.useState([]);
+    const fetchDataPlayer = () => {
+        fetch('https://cdn.lk-ft.ru/footballers')
+        .then((response) => response.json())
+        .then((data) => {
+            setPlayer(data);
+        })
+    };
+    React.useEffect(() => {
+        fetchDataPlayer();
+    }, []);
 
-    console.log(posts)
-
+    console.log(player);
     
+   
+    const [posts, setPosts] = React.useState([]);
+    const [isLoading, setIsLoading] = React.useState(false);
+    const [isError, setIsError] = React.useState(false);
+    const fetchData = () => {
+        fetch('https://cdn.lk-ft.ru/posts')
+        .then((response) => response.json())
+        .then((data) => {
+            setIsLoading(false);
+            setPosts(data);
+        })
+        .catch((error) => {
+            setIsLoading(false);
+            setIsError(true);
+            console.log(error);
+        });
+    };
+    React.useEffect(() => {
+        fetchData();
+    }, []);
+    if (isLoading) {
+        return <div>Загрузка...</div>;
+        }
+
+        var post_img;
+        var post_rich_text;
+        var post_title_text;
+        var post_author;
+        var post_author_lastname;
+        var post_teaser;
+
+        var author_icon;
+
+            posts.map((e,i) => {if(e.id == it_number){post_img = e.Post_image}})
+            posts.map((e,i) => {if(e.id == it_number){post_rich_text = e.Post_text}})
+            posts.map((e,i) => {if(e.id == it_number){post_title_text = e.Post_Title}})
+            posts.map((e,i) => {if(e.id == it_number){post_author = e.Post_author}})
+            posts.map((e,i) => {if(e.id == it_number){post_author_lastname = e.Post_author_lastname}})
+            posts.map((e,i) => {if(e.id == it_number){post_teaser = e.Post_teaser}})    
+            //author pic
+            player.map((e,i) => {if(e.lastname == post_author_lastname && e.firstname == post_author ) author_icon = e.avatar})
+
     return( 
-        <Fragment>
+        <>
             
     <section class="hero-section" id="single-post">
         <a href="#about" class="banner-icon">
@@ -42,43 +88,34 @@ export const Blog_Single = () =>{
     <section class="blog-section padding-top padding-bottom" id="about">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="post-item post-details">
+                <div class="col-lg-10"> 
+                               <div class="post-item post-details">
                         <div class="post-thumb">
-                            <img src={posts.img} alt="blog"/>
+                            <img src={"https://cdn.lk-ft.ru"+post_img?.url} alt="blog"/>
                         </div>
                         <div class="post-content">
                             <div class="post-date">
-                                <a href="#0"><i class="flaticon-clock"></i>{posts.published_at}</a>
+                                <a href="#0"><i class="flaticon-clock"></i>{}</a>
                             </div>
-                            <ul class="post-tags">
-                                <li>
-                                    <a href="#0">Видео</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Invest Ment</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Фильм</a>
-                                </li>
-                            </ul>
                             <h4 class="title">
-                                {posts.title}
+                                {post_title_text}
                             </h4>
                             <p>
-                                {posts.rich_text}
+                                {post_rich_text}
                             </p>
                         </div>
                     </div>
                     <div class="post-author">
                         <div class="thumb">
-                            <img src={posts.author_icon} alt="blog"/>
+                            <img src={"https://cdn.lk-ft.ru"+author_icon?.url} alt="blog"/>
                         </div>
-                        <h6 class="title">{posts.author}</h6>
+                        <h6 class="title">{post_author}</h6>
                         <span class="info">Автор</span>
-                        <p>{posts.author_description}</p>
+                        <p>{post_teaser}</p>
                     </div>
-                    <div class="comment-wrapper">
+                               
+                        
+{/*                     <div class="comment-wrapper">
                         <h3 class="m-title"><span>Комен</span>тарии (18)</h3>
                         <ul class="comment-area">
                             <li>
@@ -137,49 +174,11 @@ export const Blog_Single = () =>{
                                 <button type="submit">Опубликовать</button>
                             </div>
                         </form>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
     </section>
-        </Fragment>
+        </>
     );
 }
-/*
-
-
-export const ModalBlogPost = ({posts_title, posts_rich_text ,posts_author_icon, posts_author ,posts_author_description,posts_published_at,  active , setActive}) =>{
-    return(
-      
-        <section class={active ? "blog-section-modals" : "blog-section-modal"} id="about"  onClick={()=> setActive(false)}>
-        <div class="container" >
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="post-item post-details">
-                        <div class="post-content">
-                            <div class="post-date">
-                                <a href="#0"><i class="flaticon-clock"></i>{posts_published_at}</a>
-                            </div>
-                            <h4 class="title">
-                                {posts_title}
-                            </h4>
-                            <p>
-                                {posts_rich_text}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="post-author">
-                        <div class="thumb">
-                            <img src={posts_author_icon} alt="blog"/>
-                        </div>
-                        <h6 class="title">{posts_author}</h6>
-                        <span class="info">Автор</span>
-                        <p>{posts_author_description}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    )
-} */

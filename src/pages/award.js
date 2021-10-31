@@ -1,7 +1,4 @@
-import { formatRFC3339 } from "date-fns";
-import React, {  useState, useEffect } from "react";
-import { SiteFooter } from "./components/footer";
-import { SiteHeader } from "./components/header";
+import React, {  useState } from "react";
 import list_awards from "./awards.json" ;
 
 

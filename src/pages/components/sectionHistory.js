@@ -5,7 +5,7 @@ import React, { Fragment } from "react";
 export const SectionHistory = () =>{
    return(
     <Fragment>
-    <section class="history-section padding-top-2 padding-bottom-2">
+    <section class="history-section padding-top-2 padding-bottom-2" id="history">
          <div class="container">
              <div  class="section-header-2">
                  <h2 class="title">

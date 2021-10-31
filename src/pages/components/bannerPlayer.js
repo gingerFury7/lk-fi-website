@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect, useState } from "react"
+import React, { Fragment } from "react"
 
 import {observer} from "mobx-react-lite";
-import axios from "axios";
+
 
 
 export const BannerPlayer = observer(() =>{
@@ -48,7 +48,7 @@ export const BannerPlayer = observer(() =>{
                         И
                     </div>
                 </div>
-                <a href="#about" class="banner-icon">
+                <a href="#history" class="banner-icon">
                     <i class="flaticon-down-arrow"></i>
                 </a>
                 <div class="banner-thumb-1 d-none d-lg-block">

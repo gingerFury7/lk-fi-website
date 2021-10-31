@@ -1,6 +1,4 @@
-import React, { Fragment } from "react";
-import { SiteFooter } from "./components/footer";
-import { SiteHeader } from "./components/header";
+import React from "react";
 
 export const Contact =() =>{
     return(
