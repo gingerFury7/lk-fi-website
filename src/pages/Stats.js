@@ -1,7 +1,21 @@
 import React from 'react'
 import { Chart } from "react-google-charts";
+import { useStatistics } from './components/hooks/useStat';
 
-export const Stats = () => {
+export const Stats = ({stats}) => {
+
+  const { get, set } = useStatistics();
+
+
+  React.useEffect(() => {
+    if(typeof stats == 'object' && typeof stats[0] != "number"){
+        set(stats)
+    }
+    return () => {
+    }
+}, [stats])
+
+
     return (
         <section className="section-header-2" style={{marginBottom: "-20px"}}><ul>
           <div  class="container ">
@@ -25,16 +39,10 @@ export const Stats = () => {
        width={"500px"}
        height={"350px"}
        chartType="LineChart"
-        data={[
-          [{ type: 'date',label:"Дата", id: 'Date' }, { type: 'number',label:"Удар", id: 'Won/Loss' }],
-          [new Date(2021,10,14) ,33],
-          [new Date(2021,10,15), 10],
-          [new Date(2021,10,16), 23],
-          [new Date(2021,10,17), 15],
-          [new Date(2021,10,18), 25],
-          [new Date(2021,10,19), 15],
-          [new Date(2021,10,20), 31],
-        ]}
+       data={[
+        [{ type: 'date',label:"Дата", id: 'Date' }, { type: 'number',label:"Удар", id: 'Won/Loss' }],
+      //   ...get()?.ReactionList
+      ].concat(get()?.HitList || [])}
         options={{
             chart: {
                 subtitle: 'Оценка'
@@ -53,14 +61,8 @@ export const Stats = () => {
         chartType="LineChart"
         data={[
           [{ type: 'date',label:"Дата", id: 'Date' }, { type: 'number', label:"Скорость", id: 'Won/Loss' }],
-          [new Date(2021,10,14) , 15],
-          [new Date(2021,10,15), 21],
-          [new Date(2021,10,16), 23],
-          [new Date(2021,10,17), 17],
-          [new Date(2021,10,18), 30],
-          [new Date(2021,10,19), 29],
-          [new Date(2021,10,20), 33],
-        ]}
+        //   ...get()?.ReactionList
+        ].concat(get()?.SpeedList || [])}
         options={{
             chart: {
                 
@@ -82,14 +84,8 @@ export const Stats = () => {
         chartType="LineChart"
         data={[
           [{ type: 'date',label:"Дата", id: 'Date' }, { type: 'number',label:"Прыжок", id: 'Won/Loss' }],
-          [new Date(2021,10,14) ,5],
-          [new Date(2021,10,15),22],
-          [new Date(2021,10,16), 22],
-          [new Date(2021,10,17), 17],
-          [new Date(2021,10,18), 18],
-          [new Date(2021,10,19), 19],
-          [new Date(2021,10,20), 21],
-        ]}
+        //   ...get()?.ReactionList
+        ].concat(get()?.JumpList || [])}
         options={{
             chart: {
                 
@@ -107,16 +103,10 @@ export const Stats = () => {
        width={"500px"}
        height={"350px"}
        chartType="LineChart"
-        data={[
-          [{ type: 'date',label:"Дата", id: 'Date' }, { type: 'number',label:"Реакция", id: 'Won/Loss' }],
-          [new Date(2021,10,14) , 10],
-          [new Date(2021,10,15), 10],
-          [new Date(2021,10,16), 10],
-          [new Date(2021,10,17), 10],
-          [new Date(2021,10,18), 18],
-          [new Date(2021,10,19), 10],
-          [new Date(2021,10,20), 11],
-        ]}
+       data={[
+        [{ type: 'date',label:"Дата", id: 'Date' }, { type: 'number',label:"Реакция", id: 'Won/Loss' }],
+      //   ...get()?.ReactionList
+      ].concat(get()?.ReactionList || [])}
         options={{
             chart: {
                
