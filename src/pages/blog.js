@@ -1,18 +1,17 @@
 import  React, {  useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory , useParams } from "react-router-dom";
+import { BLOG_SINGLE_ROUTE, HOMEPAGE_ROUTE } from "./components/utils/consts";
+import { SiteHeader } from "./components/header";
+import { SiteFooter } from "./components/footer";
 
-import { BLOG_SINGLE_ROUTE } from "./components/utils/consts";
-import list_posts from "./post.json";
-import {observer} from "mobx-react-lite";
-import axios from "axios";
+const PostList = ()=>{
 
-
-
-const PostList = observer(()=>{
-
+    const params = useParams()
+    const it_number = params.id;
+    
     return(
-        
         <>
+            <SiteHeader/>
             <section class="hero-section">
                 <a href="#about" class="banner-icon">
                     <i class="flaticon-down-arrow"></i>
@@ -22,7 +21,7 @@ const PostList = observer(()=>{
                         <h1 class="title" data-bg="БЛОГ"><span>Последние Новости</span></h1>
                         <ul class="breadcrumb">
                             <li>
-                                <a href="/">Домашняя Страница</a>
+                                <a href={HOMEPAGE_ROUTE+'/'+it_number}>Домашняя Страница</a>
                             </li>
                             <li>
                                 <span>Блог</span>
@@ -42,20 +41,18 @@ const PostList = observer(()=>{
                   </div>
                 </div>
             </section>
+            <SiteFooter />
         </>
     );
-});
+};
 
  
-
-
-
 const Post_Component = ({posts }) =>{
 
     const history = useHistory()
-    console.log("proverka0 ",posts)
+   // console.log("proverka0 ",posts)
     JSON.stringify(posts);
-    console.log("proverka1 ",posts )
+   // console.log("proverka1 ",posts )
     return(
         <>
               {

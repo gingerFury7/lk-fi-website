@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Redirect, Route,  Switch } from 'react-router'
 import { Context } from '../..'
 import { authRoutes, publicRoutes } from './routes'
-import { HOMEPAGE_ROUTE } from './utils/consts'
+import { AUTH_ROUTE, HOMEPAGE_ROUTE } from './utils/consts'
 
 
 
@@ -20,7 +20,7 @@ export const AppRouter = () => {
             {publicRoutes.map(({path , Component}) =>
             <Route key = {path} path={path} component = {Component} exact/>
             )}
-            <Redirect to={HOMEPAGE_ROUTE}/>
+            <Redirect to={AUTH_ROUTE}/>
         </Switch>
     )
 }

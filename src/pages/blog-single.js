@@ -1,5 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router'
+import { SiteFooter } from './components/footer'
+import { SiteHeader } from './components/header'
+import { HOMEPAGE_ROUTE } from './components/utils/consts'
 
 export const Blog_Single = () =>{
    //  const [posts, setPosts] = useState({info: []})
@@ -62,10 +65,10 @@ export const Blog_Single = () =>{
             posts.map((e,i) => {if(e.id == it_number){post_teaser = e.Post_teaser}})    
             //author pic
             player.map((e,i) => {if(e.lastname == post_author_lastname && e.firstname == post_author ) author_icon = e.avatar})
-
+            
     return( 
         <>
-            
+            <SiteHeader/>
     <section class="hero-section" id="single-post">
         <a href="#about" class="banner-icon">
             <i class="flaticon-down-arrow"></i>
@@ -74,8 +77,8 @@ export const Blog_Single = () =>{
             <div class="hero-content">
                 <h1 class="title" data-bg="БЛОГ"><span>Подробности Блога</span></h1>
                 <ul class="breadcrumb">
-                    <li>
-                        <a href="/">Домашняя Страница</a>
+                    <li> 
+                        <a href={HOMEPAGE_ROUTE+'/'+it_number}>Домашняя Страница</a>
                     </li>
                     <li>
                         <span>Подробности Блога</span>
@@ -179,6 +182,7 @@ export const Blog_Single = () =>{
             </div>
         </div>
     </section>
+    <SiteFooter />
         </>
     );
 }

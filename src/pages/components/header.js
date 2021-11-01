@@ -1,13 +1,16 @@
-import { ADMIN_ROUTE, AUTH_ROUTE, AWARD_ROUTE, BLOG_ROUTE, CONTACT_ROUTE, HOMEPAGE_ROUTE } from "./utils/consts";
+import { /* ADMIN_ROUTE, */ AUTH_ROUTE, /* AWARD_ROUTE, */ BLOG_ROUTE, CONTACT_ROUTE, HOMEPAGE_ROUTE } from "./utils/consts";
 import React, { useContext } from 'react';
 import { Context } from "../..";
-import {observer} from "mobx-react-lite";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 
 export const SiteHeader = () => {
     const {user} = useContext(Context)
     const history = useHistory()
+    const params = useParams()
+    const it_number = params.id;
+    
+    console.log("from header",it_number);
     return (
         <div>
             <div class="overlay"></div>
@@ -16,7 +19,7 @@ export const SiteHeader = () => {
                     <div class="container">
                         <div class="header-wrapper">
                             <div class="logo">
-                                <a  href="index.html"><img src="./images/logo/logo.png" alt="logo"/></a>
+                                <a  href="index.html"><img src="/images/logo/logo.png" alt="logo"/></a>
                             </div>
                             <div class="follow-area">
                                 <h6 class="title">Следуй за Мной</h6>
@@ -34,11 +37,6 @@ export const SiteHeader = () => {
                             </div>
                             <div class="header-right d-none d-lg-block">
                                 <a href="#0" class="custom-button choto">Следовать</a>
-                            </div>
-                            <div class="header-right d-none d-lg-block">
-                                <a href="#0" class="custom-button choto ml-2" 
-                                onClick={() => history.push(ADMIN_ROUTE)}
-                                >Админ Панель</a>
                             </div>
                             <div class="header-right d-none d-lg-block">
                                 <a href="#0" class="custom-button choto ml-2" 
@@ -62,22 +60,14 @@ export const SiteHeader = () => {
                     <ul class="sub-nav">
                     
                                         <li>
-                                            <a href={HOMEPAGE_ROUTE} class="custom-button choto py-0 d-lg-none">Домашняя страница</a>
-                                        {/* <ul class="submenu">
-                                                <li>
-                                                    <a href="/">Home 1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/home">Home 2</a>
-                                                </li>
-                                            </ul>*/}
+                                            <a href={HOMEPAGE_ROUTE+'/'+it_number} class="custom-button choto py-0 d-lg-none">Домашняя страница</a>
                                         </li>
                                         <li>
-                                            <a href={BLOG_ROUTE} class="custom-button choto py-0 d-lg-none">Блог</a>
+                                            <a href={BLOG_ROUTE+'/'+it_number} class="custom-button choto py-0 d-lg-none">Новости</a>
                                         </li>
-                                        <li>
+{/*                                         <li>
                                             <a href={AWARD_ROUTE} class="custom-button choto py-0 d-lg-none">Награды</a>
-                                        </li>
+                                        </li> */}
                                         <li>
                                             <a href={CONTACT_ROUTE} class="custom-button choto py-0 d-lg-none">Контакты</a>
                                         </li>
@@ -119,32 +109,16 @@ export const SiteHeader = () => {
                                 <div class="header-bottom-wrapper">
                                     <ul class="menu">
                                         <li>
-                                            <a href={HOMEPAGE_ROUTE}>Домашняя страница</a>
-                                        {/* <ul class="submenu">
-                                                <li>
-                                                    <a href="/">Home 1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/home">Home 2</a>
-                                                </li>
-                                            </ul>*/}
+                                            <a href={HOMEPAGE_ROUTE+'/'+it_number}>Домашняя страница</a>
                                         </li>
                                         <li>
-                                            <a href={BLOG_ROUTE}>Блог</a>
-                                            {/* {<ul class="submenu">
-                                                <li>
-                                                    <a href={BLOG_ROUTE}>Блог</a>
-                                                </li>
-                                                <li>
-                                                    <a href={BLOG_SINGLE_ROUTE}>Одиночный блог</a>
-                                                </li>
-                                            </ul>} */}
+                                            <a href={BLOG_ROUTE+'/'+it_number}>Новости</a>
                                         </li>
-                                        <li>
+{/*                                         <li>
                                             <a href={AWARD_ROUTE}>Награды</a>
-                                        </li>
+                                        </li> */}
                                         <li>
-                                            <a href={CONTACT_ROUTE}>Контакты</a>
+                                            <a href={CONTACT_ROUTE+'/'+it_number}>Контакты</a>
                                         </li>
                                         <li>
                                             <a href="#0" class="custom-button choto py-0 d-lg-none">Подписывайся</a>
@@ -160,45 +134,7 @@ export const SiteHeader = () => {
                             </div>
                         </div>
                 </section>
-                <header class="header-section-2">
-                    <div class="container">
-                        <div class="header-wrapper">
-                            <div class="logo">
-                                <a  href="index.html"><img src="./images/logo/logo.png" alt="logo"/></a>
-                            </div>
-                            <div class="follow-area">
-                                <h6 class="title">Следуй за Мной</h6>
-                                <ul class="social-icons justify-content-start choto">
-                                    <li>
-                                        <a href="#0"><i class="fab fa-facebook-f"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#0" class="active"><i class="fab fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#0"><i class="fab fa-instagram"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="header-right d-none d-lg-block">
-                                <a href="#0" class="custom-button choto">Следовать</a>
-                            </div>
-                            <div class="header-right d-none d-lg-block">
-                                <a href={AUTH_ROUTE} class="custom-button choto ml-2" 
-                                >Авторизация</a>
-                            </div>
-                            <div class="ellipsis-bar ml-auto d-lg-none">
-                                <i class="fas fa-ellipsis-h"></i>
-                            </div>
-                            <div class="header-bar" >
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-
-            
-                        </div>
-                    </div></header>
+                
                     
     </div>
                     

@@ -15,19 +15,19 @@ export const authRoutes = [
 ]
 export const publicRoutes = [
     {
-        path: HOMEPAGE_ROUTE,
+        path: HOMEPAGE_ROUTE + '/:id',
         Component : Home
     },
     {
-        path: BLOG_ROUTE,
+        path: BLOG_ROUTE + '/:id',
         Component : PostList
     },
     {
-        path: AWARD_ROUTE,
+        path: AWARD_ROUTE ,
         Component : award  
     },
     {
-        path: CONTACT_ROUTE,
+        path: CONTACT_ROUTE + '/:id',
         Component : Contact  
     },
     {

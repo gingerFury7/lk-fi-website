@@ -99,10 +99,10 @@ export const Stats = () => {
         }}
         rootProps={{ 'data-testid': '2' }}
       /></div>
-      
+      <div className="title-chart" >
       <span class="text-theme" style={{
-    position: "absolute",
-    marginTop: "-4px"}}>Реакция</span>
+        position: "absolute",
+        marginTop: "-4px"}}>Реакция</span>
       <Chart className="mt-4"
        width={"500px"}
        height={"350px"}
@@ -125,7 +125,7 @@ export const Stats = () => {
               },
         }}
         rootProps={{ 'data-testid': '2' }}
-      /></ul>
+      /></div></ul>
         </section>
     )
 }

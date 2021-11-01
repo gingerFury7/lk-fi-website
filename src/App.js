@@ -12,17 +12,17 @@ import './css/odometer.css'
 
 
 import { AppRouter } from './pages/components/AppRouter';
-import { SiteHeader } from './pages/components/header';
-import { SiteFooter } from './pages/components/footer';
+/* import { SiteHeader } from './pages/components/header'; */
+/* import { SiteFooter } from './pages/components/footer'; */
 
 
 function App() {
   return (
  
    <BrowserRouter>
-       <SiteHeader />
+       {/* <SiteHeader /> */}
        <AppRouter />
-       <SiteFooter />
+       {/* <SiteFooter /> */}
    </BrowserRouter>
   );
 }

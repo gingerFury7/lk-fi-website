@@ -1,8 +1,13 @@
 import React, { Fragment } from "react";
+import { useHistory, useParams } from "react-router";
 
 
 
 export const SiteFooter = () =>{
+    const params = useParams()
+    const history = useHistory()
+    const it_number = params.id;
+    
     return(
         <Fragment>
             <footer class="bg_img footer-overlay" data-background="./images/footer-bg.jpg">
@@ -14,11 +19,11 @@ export const SiteFooter = () =>{
                     <div class="footer-area">
                         <div class="footer-widget widget-about">
                             <div class="logo">
-                                <img src="./images/logo/logo.png" alt="logo"/>
+                                <img src="/images/logo/logo.png" alt="logo"/>
                             </div>
                             <p>Dempor pede libero dapi useu class venenatis ut bibendum quam ut nibh necm. NonhonPede mollis vel vitae dorpis Sed odio ultrices id, est eu mauris.</p>
                         </div>
-                        <div class="footer-widget widget-link">
+                       {/*  <div class="footer-widget widget-link">
                             <h5 class="title">Полезные ссылки</h5>
                             <ul>
                                 <li>
@@ -37,8 +42,8 @@ export const SiteFooter = () =>{
                                     <a href="#0">Награда</a>
                                 </li>
                             </ul>
-                        </div>
-                        <div class="footer-widget widget-link">
+                        </div> */}
+                        {/* <div class="footer-widget widget-link">
                             <h5 class="title">Мои награды</h5>
                             <ul>
                                 <li>
@@ -54,10 +59,9 @@ export const SiteFooter = () =>{
                                     <a href="#0">POTY</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> */}
                         <div class="footer-widget widget-follow">
-                            <h5 class="title">Подписывайтесь на меня</h5>
-                            <p>At vero eos et accusamus eiusto odio dignissimos ducimus qui blanditiis praesentium voltatum </p>
+                            <h5 class="title">Подписывайтесь на Нас</h5>
                             <ul class="social-icons choto">
                                 <li>
                                     <a href="#0"><i class="fab fa-facebook-f"></i></a>

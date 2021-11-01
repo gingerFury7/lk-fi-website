@@ -1,11 +1,19 @@
 import React from "react";
+import { useParams } from "react-router";
+import { SiteFooter } from "./components/footer";
+import { SiteHeader } from "./components/header";
+import { HOMEPAGE_ROUTE } from "./components/utils/consts";
+
 
 export const Contact =() =>{
+    const params = useParams()
+    const it_number = params.id;
     return(
         
            <html>
+               <SiteHeader />
                <body>
-<div className="contact-background">
+                <div className="contact-background">
                     <section class="hero-section">
                         <a href="#about" class="banner-icon">
                             <i class="flaticon-down-arrow"></i>
@@ -15,7 +23,7 @@ export const Contact =() =>{
                                 <h1 class="title" data-bg="Contact"><span>Контактная Информация</span></h1>
                                 <ul class="breadcrumb">
                                     <li>
-                                        <a href="/home">Домашняя Страница</a>
+                                        <a href={HOMEPAGE_ROUTE+'/'+it_number}>Домашняя Страница</a>
                                     </li>
                                     <li>
                                         <span>Контакты</span>
@@ -104,6 +112,7 @@ export const Contact =() =>{
                     </div>
 </div>
                </body>
+               <SiteFooter/>
            </html>
 
     )
