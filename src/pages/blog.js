@@ -12,11 +12,11 @@ const PostList = ()=>{
     return(
         <>
             <SiteHeader/>
-            <section class="hero-section">
+            <section class="hero-section"  >
                 <a href="#about" class="banner-icon">
                     <i class="flaticon-down-arrow"></i>
                 </a>
-                <div class="container">
+                <div class="container" style={{background: "#212529"}}>
                     <div class="hero-content">
                         <h1 class="title" data-bg="БЛОГ"><span>Последние Новости</span></h1>
                         <ul class="breadcrumb">
@@ -31,11 +31,11 @@ const PostList = ()=>{
                 </div>
             </section>
 
-            <section class="blog-section padding-top padding-bottom" id="about">
-                <div class="container">
+            <section class="blog-section padding-top padding-bottom" id="about" >
+                <div class="container" style={{background: "#212529"}}>
                     <div class="row justify-content-center mb-40-60-none d-flex flex-column " >
                    
-                        <Pagination_Post  />
+                        <Pagination_Post it_number={it_number} />
                    
                     
                   </div>
@@ -47,7 +47,7 @@ const PostList = ()=>{
 };
 
  
-const Post_Component = ({posts }) =>{
+const Post_Component = ({posts , it_number }) =>{
 
     const history = useHistory()
    // console.log("proverka0 ",posts)
@@ -67,7 +67,7 @@ const Post_Component = ({posts }) =>{
                             <div class="post-date">
                                 <a href="#0"><i class="flaticon-clock"></i>{e.Post_Date}</a>
                             </div>
-                            <ul class="post-tags">
+                            {/* <ul class="post-tags">
                                 <li>
                                     <a href="#0">Видео</a>
                                 </li>
@@ -77,12 +77,12 @@ const Post_Component = ({posts }) =>{
                                 <li>
                                     <a href="#0">Фильм</a>
                                 </li>
-                            </ul>
+                            </ul> */}
                             <h4 class="title">
-                                <a href="/blog_single">{e.Post_Title}</a>
+                                <a href="/blog_single" style={{color: "white"}}>{e.Post_Title}</a>
                             </h4>
                             <p>{e.Post_teaser}</p>
-                            <a href="#single-post" class="custom-button" onClick={()=> history.push(BLOG_SINGLE_ROUTE+'/'+e.id)} >Подробности</a>
+                            <a href="#single-post" class="custom-button" style={{color: "white"}} onClick={()=> history.push(BLOG_SINGLE_ROUTE+'/'+it_number+'/'+e.id)} >Подробности</a>
                         </div>
                     </div>
                 </div> 
@@ -97,7 +97,7 @@ const Pagination = ({postPerPage, totalPost , paginate}) => {
     
     const pageNumbers = [];
 
-    console.log("leng" , totalPost)
+   // console.log("leng" , totalPost)
 
     for(let i = 1; i <=Math.ceil(totalPost / postPerPage); i++){
         pageNumbers.push(i);
@@ -121,7 +121,7 @@ const Pagination = ({postPerPage, totalPost , paginate}) => {
     )
 }
 
- function Pagination_Post(){
+ function Pagination_Post({it_number}){
 
     const [currentPage, setCurrentPage] = useState(1);
     const [postPerPage] = useState(4);
@@ -163,7 +163,7 @@ const Pagination = ({postPerPage, totalPost , paginate}) => {
         return(
             <>
                
-               <Post_Component posts={posts}  />
+               <Post_Component posts={posts} it_number={it_number} />
                <Pagination postPerPage={postPerPage} totalPost={posts.length} paginate={paginate} />
 
         </>

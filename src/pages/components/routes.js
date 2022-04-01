@@ -31,7 +31,7 @@ export const publicRoutes = [
         Component : Contact  
     },
     {
-        path: BLOG_SINGLE_ROUTE + '/:id',
+        path: BLOG_SINGLE_ROUTE + '/:test'+'/:id',
         Component : Blog_Single 
     },
     {

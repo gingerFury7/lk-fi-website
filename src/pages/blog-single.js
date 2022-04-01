@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router'
+import { useHistory, useParams } from 'react-router'
 import { SiteFooter } from './components/footer'
 import { SiteHeader } from './components/header'
 import { HOMEPAGE_ROUTE } from './components/utils/consts'
@@ -9,6 +9,10 @@ export const Blog_Single = () =>{
 
     const params = useParams()
     const it_number = params.id;
+    const that_number=params.test;
+
+    
+
 
     const [player, setPlayer] = React.useState([]);
     const fetchDataPlayer = () => {
@@ -22,7 +26,7 @@ export const Blog_Single = () =>{
         fetchDataPlayer();
     }, []);
 
-    console.log(player);
+   // console.log(player);
     
    
     const [posts, setPosts] = React.useState([]);
@@ -70,15 +74,15 @@ export const Blog_Single = () =>{
         <>
             <SiteHeader/>
     <section class="hero-section" id="single-post">
-        <a href="#about" class="banner-icon">
+        {/* <a href="#about" class="banner-icon">
             <i class="flaticon-down-arrow"></i>
-        </a>
+        </a> */}
         <div class="container">
             <div class="hero-content">
                 <h1 class="title" data-bg="БЛОГ"><span>Подробности Блога</span></h1>
                 <ul class="breadcrumb">
                     <li> 
-                        <a href={HOMEPAGE_ROUTE+'/'+it_number}>Домашняя Страница</a>
+                        <a href={HOMEPAGE_ROUTE+'/'+that_number}>Домашняя Страница</a>
                     </li>
                     <li>
                         <span>Подробности Блога</span>
@@ -88,7 +92,7 @@ export const Blog_Single = () =>{
         </div>
     </section>
 
-    <section class="blog-section padding-top padding-bottom" id="about">
+    <section class="blog-section padding-top padding-bottom" id="about" style={{background:"#212529" ,marginBottom: "-46px"}}>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10"> 
@@ -97,9 +101,9 @@ export const Blog_Single = () =>{
                             <img src={"https://cdn.lk-ft.ru"+post_img?.url} alt="blog"/>
                         </div>
                         <div class="post-content">
-                            <div class="post-date">
+                            {/* <div class="post-date">
                                 <a href="#0"><i class="flaticon-clock"></i>{}</a>
-                            </div>
+                            </div> */}
                             <h4 class="title">
                                 {post_title_text}
                             </h4>

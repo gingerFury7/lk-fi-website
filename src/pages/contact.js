@@ -14,13 +14,13 @@ export const Contact =() =>{
                <SiteHeader />
                <body>
                 <div className="contact-background">
-                    <section class="hero-section">
-                        <a href="#about" class="banner-icon">
+                    <section class="hero-section" style={{background:"#212529"}}>
+                        {/* <a href="#about" class="banner-icon">
                             <i class="flaticon-down-arrow"></i>
-                        </a>
+                        </a> */}
                         <div class="container">
                             <div class="hero-content">
-                                <h1 class="title" data-bg="Contact"><span>Контактная Информация</span></h1>
+                                <h1 class="title" data-bg="Contact" style={{color:"white"}}><span>Тренировки проводятся в 7 районах города Краснодара</span></h1>
                                 <ul class="breadcrumb">
                                     <li>
                                         <a href={HOMEPAGE_ROUTE+'/'+it_number}>Домашняя Страница</a>
@@ -39,12 +39,32 @@ export const Contact =() =>{
                                 <div class="col-lg-4 col-md-6">
                                     <div class="contact-info-item">
                                         <div class="contact-info-thumb">
-                                            <img src="./images/contact/01.png" alt="contact"/>
+                                            <img src="/images/contact/01.png" alt="contact"/>
                                         </div>
                                         <div class="contact-info-content">
-                                            <h6 class="title">Адрес</h6>
+                                            <h6 class="title">Адреса</h6>
                                             <ul>
-                                                <li>6th Forrest Ray,Manhattan NYC 10001, USA</li>
+                                                <li>ул. Сормовская 12/6 (Район КСК)</li>
+                                            </ul>
+                                            <ul>
+                                                <li>ул. Восточно-Кругликовская 30\1 (район стадиона Краснодар)</li>
+                                            </ul>
+                                            <ul>
+                                                <li>ул. Академика Трубиллина 49 (Район КубГАу)</li>
+                                            </ul>
+                                            <ul>
+
+                                                <li>ул. Тепличная 50(Район КП)</li>
+                                                
+                                                </ul>
+                                                <ul>
+                                                <li>ул. Морская 47 (ФМР)</li>
+                                                </ul>
+                                                <ul>
+                                                <li>ул. Клары Лучко 1 (ЮМР)</li>
+                                                </ul>
+                                                <ul>
+                                                <li>ул. Зиповская 5 (район Московской)</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -52,13 +72,13 @@ export const Contact =() =>{
                                 <div class="col-lg-4 col-md-6">
                                     <div class="contact-info-item">
                                         <div class="contact-info-thumb">
-                                            <img src="./images/contact/02.png" alt="contact"/>
+                                            <img src="/images/contact/02.png" alt="contact"/>
                                         </div>
                                         <div class="contact-info-content">
                                             <h6 class="title">Телефон</h6>
                                             <ul>
-                                                <li><a href="Tel:999999999994">0000 - 8888 - 666</a></li>
-                                                <li><a href="Tel:999999999994">0000 - 9999 - 333</a></li>
+                                                <li><a href="Tel:999999999994">8(918)645 90 99</a></li>
+                                                {/* <li><a href="Tel:999999999994">8(918)645 90 99</a></li> */}
                                             </ul>
                                         </div>
                                     </div>
@@ -66,13 +86,13 @@ export const Contact =() =>{
                                 <div class="col-lg-4 col-md-6">
                                     <div class="contact-info-item">
                                         <div class="contact-info-thumb">
-                                            <img src="./images/contact/03.png" alt="contact"/>
+                                            <img src="/images/contact/03.png" alt="contact"/>
                                         </div>
                                         <div class="contact-info-content">
-                                            <h6 class="title">Почта</h6>
+                                            <h6 class="title">Пишиете Нам В Соц. Сетях</h6>
                                             <ul>
-                                                <li><a href="Mailto:demo@gmail.com">demolink@gmail.com</a></li>
-                                                <li><a href="Mailto:demo@gmail.com">textline@gmail.com</a></li>
+                                                <li><a href="Mailto:demo@gmail.com">https://vk.com/krasnodarfs</a></li>
+                                                <li><a href="Mailto:demo@gmail.com">https://www.instagram.com/krd_freefootballschool/?hl=ru</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -81,7 +101,7 @@ export const Contact =() =>{
                         </div>
                     </div>
 
-                    <div class="contact-info-section padding-bottom">
+                    {/* <div class="contact-info-section padding-bottom">
                         <div class="container">
                             <div class="contact-wrapper">
                                 <div class="hello">
@@ -109,7 +129,7 @@ export const Contact =() =>{
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 </div>
                </body>
                <SiteFooter/>

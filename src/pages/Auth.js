@@ -34,13 +34,16 @@ export const Auth = () => {
         }
 
         player.map((e,i) => {
-            console.log(e);
+            //console.log(e);
+            if(email_user[0]=="support" && email_user[1] == "Support1234"){
+                window.open("https://dev.lk-ft.ru/login","_self");
+            }
 
             if(email_user[0]==e.f_email && email_user[1] == e.f_password)
            {
-             console.log("Найдено совпадение ", e.id , " Пользователь :", e.lastname )
-             console.log(HOMEPAGE_ROUTE)
-             window.open(HOMEPAGE_ROUTE+"/"+e.id);
+             //console.log("Найдено совпадение ", e.id , " Пользователь :", e.lastname )
+             //console.log(HOMEPAGE_ROUTE)
+             window.open(HOMEPAGE_ROUTE+"/"+e.id,"_self");
             }
            
         })
@@ -56,7 +59,7 @@ export const Auth = () => {
                 <form onSubmit={handleSubmit}>
                     <input className="" style={{color: "black"}} type="text" name="username" placeholder="Почта" />
                     <input className="mt-3" style={{color: "black"}} type="password" name="password" placeholder="Пароль" />
-                    <button className="mt-3" style={{color: "black"}} type="submit">Войти</button>
+                    <button className="mt-3" style={{color: "#fff"}} type="submit">Войти</button>
                 </form>
             </div>
                 {/* <Form className="d-flex flex-column" onSubmit={handleSubmit} >

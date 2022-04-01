@@ -42,7 +42,7 @@ class Test_Comen extends Component {
     }, () => localStorage.setItem('state', JSON.stringify(this.state)))
   }
   handleChange = (e) => {
-    console.log(e.target.name)
+   // console.log(e.target.name)
     this.setState({
       form: {
         ...this.state.form,

@@ -9,7 +9,7 @@ export const SiteFooter = () =>{
     const it_number = params.id;
     
     return(
-        <Fragment>
+        <div >
             <footer class="bg_img footer-overlay" data-background="./images/footer-bg.jpg">
                 <a href="#" onClick="scroll(0,0); return false" class="banner-icon">
                     <i class="flaticon-up-arrow-angle"></i>
@@ -21,7 +21,6 @@ export const SiteFooter = () =>{
                             <div class="logo">
                                 <img src="/images/logo/logo.png" alt="logo"/>
                             </div>
-                            <p>Dempor pede libero dapi useu class venenatis ut bibendum quam ut nibh necm. NonhonPede mollis vel vitae dorpis Sed odio ultrices id, est eu mauris.</p>
                         </div>
                        {/*  <div class="footer-widget widget-link">
                             <h5 class="title">Полезные ссылки</h5>
@@ -63,15 +62,12 @@ export const SiteFooter = () =>{
                         <div class="footer-widget widget-follow">
                             <h5 class="title">Подписывайтесь на Нас</h5>
                             <ul class="social-icons choto">
-                                <li>
-                                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#0" class="active"><i class="fab fa-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#0"><i class="fab fa-instagram"></i></a>
-                                </li>
+                            <li>
+                                        <a href="https://vk.com/krasnodarfs"><i class="fab fa-vk  fa-1x"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://t.me/footskill_krd" ><i class="fab fa-telegram  fa-3x"></i></a>
+                                    </li>
                             </ul>
                         </div>
                     </div>
@@ -82,6 +78,6 @@ export const SiteFooter = () =>{
                     </div>
                 </div>
             </footer>
-        </Fragment>
+        </div>
     )
 }

@@ -1,12 +1,12 @@
 
-import React from 'react'
+import React, {useState} from 'react'
 import { Chart } from "react-google-charts";
 import { useStatistics } from './components/hooks/useStat';
 
 export const Stats = ({stats}) => {
 
   const { get, set } = useStatistics();
-
+  const [show, setShow] = useState(false);
 
   React.useEffect(() => {
     if(typeof stats == 'object' && typeof stats[0] != "number"){
@@ -15,12 +15,13 @@ export const Stats = ({stats}) => {
     return () => {
     }
 }, [stats]) 
-return (
+if(show){
+  return (<div className="container">
   <section className="section-header-2" style={{marginBottom: "-20px"}}><ul>
     <div  class="container ">
-           <h2 class="title">
+           <h2 class="title" onClick={() => setShow(false)}>
                <a name="myhistory" href="#0"><div class="stroke-text">Статистика</div></a>
-               <span class="text-theme">Моя</span> <span>Статистика</span>
+               <span class="text-theme">Моя</span> <span>СТАТИСТИКА</span>
            </h2>
        </div>
   </ul>
@@ -33,7 +34,8 @@ return (
   }}><div className="title-chart">
       <span class="text-theme"style={{
 position: "absolute",
-marginTop: "-4px"}}>Удар</span> 
+marginTop: "-4px",
+color:"#25BA00", marginLeft: "64px"}}>Удар</span> 
     <Chart className="mt-4"
  width={"500px"}
  height={"350px"}
@@ -44,8 +46,10 @@ marginTop: "-4px"}}>Удар</span>
 ].concat(get()?.HitList || [])}
   options={{
       chart: {
-          subtitle: 'Оценка'
+          subtitle: 'Оценка',
         },
+      intervals:{ color:"#ffffff"}
+       
   }}
   rootProps={{ 'data-testid': '2' }}
 />
@@ -53,7 +57,7 @@ marginTop: "-4px"}}>Удар</span>
   <div className="title-chart" >
 <span class="text-theme" style={{
 position: "absolute",
-marginTop: "-4px"}}>Скорость</span>
+marginTop: "-4px",color:"#25BA00",marginLeft: "64px"}}>Скорость</span>
 <Chart className="mt-4"
   width={"500px"}
   height={"350px"}
@@ -76,7 +80,7 @@ marginTop: "-4px"}}>Скорость</span>
 <div className="title-chart" >
 <span class="text-theme" style={{
 position: "absolute",
-marginTop: "-4px"}}>Прыжок</span>
+marginTop: "-4px",color:"#25BA00",marginLeft: "64px"}}>Прыжок</span>
 <Chart className="mt-4"
   width={"500px"}
   height={"350px"}
@@ -97,7 +101,7 @@ marginTop: "-4px"}}>Прыжок</span>
 <div className="title-chart" >
 <span class="text-theme" style={{
   position: "absolute",
-  marginTop: "-4px"}}>Реакция</span>
+  marginTop: "-4px",color:"#25BA00",marginLeft: "64px"}}>Реакция</span>
 <Chart className="mt-4"
  width={"500px"}
  height={"350px"}
@@ -115,8 +119,21 @@ marginTop: "-4px"}}>Прыжок</span>
   }}
   rootProps={{ 'data-testid': '2' }}
 /></div></ul>
+  </section></div> )
+}else{
+  return(
+    <div className="container">
+  <section className="section-header-2" style={{marginBottom: "-20px"}}>
+    
+           <h2 class="title" onClick={() => setShow(true)}>
+               <a name="myhistory" href="#0"><div class="stroke-text">Статистика</div></a>
+               <span class="text-theme">Моя</span> <span>СТАТИСТИКА</span>
+           </h2>
+       
   </section>
-)
+  </div>
+  )
+}
 
 
  
