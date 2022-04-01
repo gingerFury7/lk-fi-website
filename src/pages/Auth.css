@@ -1,0 +1,34 @@
+.p-5{
+    height: 491px;
+    width: 442px;
+    left: 499px;
+    top: 175px;
+    border-radius: 0px;
+
+}
+
+.auth-input{
+    height: 40px;
+    width: 382px;
+    left: 529px;
+    top: 390px;
+    border-radius: 0px;
+    background: rgba(37, 186, 0, 0.1);;
+    outline: none;
+}
+
+.auth-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 80px;
+    
+    position: absolute;
+    width: 204px;
+    height: 52px;
+    left: 618px;
+    top: 567px;
+    
+    background: #25BA00;
+}

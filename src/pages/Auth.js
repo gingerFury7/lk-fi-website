@@ -2,6 +2,7 @@ import React from 'react'
 import {  Card, Container, Form, Row } from 'react-bootstrap'
 import { useLocation } from 'react-router-dom'
 import { AUTH_ROUTE, HOMEPAGE_ROUTE } from './components/utils/consts'
+import './Auth.css'
 
 
 
@@ -50,16 +51,22 @@ export const Auth = () => {
       };
 
     return (
-        <Container 
+            <Container 
         className="d-flex justify-content-center aling-items-center"
         style={{height: window.innerHeight-54 , marginTop:window.innerHeight-700}}
         >
-            <Card style={{width: 600 , height: 300 , backgroundColor: "grey" }} className="p-5">
+            <Card className="p-5">
             <div>
                 <form onSubmit={handleSubmit}>
-                    <input className="" style={{color: "black"}} type="text" name="username" placeholder="Почта" />
-                    <input className="mt-3" style={{color: "black"}} type="password" name="password" placeholder="Пароль" />
-                    <button className="mt-3" style={{color: "#fff"}} type="submit">Войти</button>
+                    <label>
+                        Почта
+                        <input className="auth-input" style={{color: "black"}} type="text" name="username" placeholder="Введите почту" />
+                    </label>
+                    <label>
+                        Пароль
+                        <input className="auth-input" style={{color: "black"}} type="password" name="password" placeholder="Введите пароль" />
+                    </label>
+                    <button className="auth-button" style={{color: "#fff"}} type="submit">Войти</button>
                 </form>
             </div>
                 {/* <Form className="d-flex flex-column" onSubmit={handleSubmit} >
@@ -92,7 +99,8 @@ export const Auth = () => {
                 </Form> */}
             </Card>
 
-        </Container>
+        </Container> 
+       
     )
 }
 
